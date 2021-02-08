@@ -1,18 +1,5 @@
-#!/usr/bin/env python3
-# -*- coding: utf-8 -*-
-"""
-Created on Fri Nov 16 16:28:51 2018
-
-@author: herminio
-         Adapted from Ricieri's code.
-"""
-
-
 import numpy as np
 import math;
-
-
-# CLASS DEFINITION ==============================================================================
 
 class Solution( object ):
     def __init__( self, radius, sigma, solid, fluid ):
@@ -42,7 +29,6 @@ class Solution( object ):
         self._calculate_K_p();
         self._calculate_B();
         self._calculate_K_u();
-##        self._calculate_ni();
         self._calculate_ni_u();
         self._calculate_K_ni_u();
         self._calculate_gama();
@@ -50,12 +36,10 @@ class Solution( object ):
 
         self._calculate_S();
         self._calculate_eta();
-#        self._calculate_cv();
 
         self._computeInitialPressure();
 
 
-    # Internal functions --------------------------------------------------------------------
 
     def _calculate_E(self):
         self.E = 2*self.G*(1 + self.ni)
@@ -125,8 +109,6 @@ class Solution( object ):
 
     def _calculate_S(self):
         self.S = self.phi*self.c_f + (self.alpha - self.phi)*self.c_s
-
-
 
     def _computeInitialPressure(self):
         self.initialPressure = self.sigma*self.alpha/(self.alpha**2 + self.K*self.S)

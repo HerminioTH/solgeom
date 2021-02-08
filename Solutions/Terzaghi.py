@@ -1,13 +1,5 @@
-"""
-Created on Thu Nov 7 14:08:02 2019
-
-@author: Carlos
-         Adapted from Herminio's code.
-"""
 import numpy as np
 import math
-
-# CLASS DEFINITION ==============================================================================
 
 class Solution(object):
     def __init__(self, height, tao_0, solid, fluid, gravity):

@@ -82,8 +82,8 @@ ax[1][2].grid(True)
 # Plot vertical stress profiles --------------------------------------------
 for t in times_1:
 	sigma_y = mandel.getVertStressValuesConstTime(t)
-	ax[0][3].plot(sigma_y, y)
-ax[0][3].set_xlabel("Vert. displacement (mm)", size=12, **fonts)
+	ax[0][3].plot(sigma_y*kPa, y)
+ax[0][3].set_xlabel("Vert. stress (kPa)", size=12, **fonts)
 ax[0][3].set_ylabel("y (m)", size=12, **fonts)
 ax[0][3].grid(True)
 # --------------------------------------------------------------------------

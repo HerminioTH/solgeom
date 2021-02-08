@@ -1,13 +1,5 @@
-"""
-Created on Thu Nov 7 14:08:02 2019
-
-@author: Carlos
-         Adapted from Herminio's code.
-"""
 import numpy as np
 import math
-
-# CLASS DEFINITION ==============================================================================
 
 class Solution(object):
     def __init__(self, height, tao_0, solid, fluid, gravity):
@@ -150,6 +142,7 @@ class Solution(object):
 
 
 
+    # Class interface -----------------------------------------------------------------------
     def getPositionValues(self, ny=200):
         '''If ny is an interger, then a list of equally spaced vertical position will be created. However, ny can be
             a list or an numpy array with specified vertical positions.'''

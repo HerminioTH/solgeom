@@ -1,7 +1,7 @@
 {
    "UPPER_LAYER": {
       "PoissonsRatio": 0.284,
-      "ShearModulus": 97900000.0,
+      "ShearModulus": 9790000.0,
       "Compressibility": 2.06e-10,
       "Porosity": 0.48,
       "Permeability": 3.62e-12,
@@ -12,7 +12,7 @@
       "ShearModulus": 97900000.0,
       "Compressibility": 2.06e-10,
       "Porosity": 0.48,
-      "Permeability": 3.62e-12,
+      "Permeability": 3.62e-14,
       "Density": 2500.0
    }
 }

@@ -150,6 +150,7 @@ class Solution(object):
 
 
 
+    # Class interface -----------------------------------------------------------------------
     def getPositionValues(self, ny=200):
         '''If ny is an interger, then a list of equally spaced vertical position will be created. However, ny can be
             a list or an numpy array with specified vertical positions.'''

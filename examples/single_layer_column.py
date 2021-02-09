@@ -2,7 +2,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 import json
 import sys
-sys.path.append("../Solutions")
+sys.path.append("../solgeom")
 from Terzaghi import Solution
 
 mm = 1000.
@@ -25,7 +25,7 @@ fig.subplots_adjust(left=0.070, right=0.975, top=0.970, bottom=0.065, hspace=0.2
 fonts = {'fontname': 'serif'}
 
 # Plot pressure profiles ---------------------------------------------------
-times_1 = [0., 1., 10., 30., 80.]
+times_1 = [0., 10., 120., 380., 2000]
 for t in times_1:
 	p = terza.getPressureValuesConstTime(t)
 	ax[0][0].plot(p*kPa, z)
@@ -47,7 +47,7 @@ ax[0][1].grid(True)
 
 
 # Plot bottom pressure over time -------------------------------------------
-times_2 = np.linspace(0, 200., 100)
+times_2 = np.linspace(0, 2000., 100)
 p = terza.getPressureValuesAtPosition(0.0, times_2) # Bottom pressure (z=0.0)
 ax[1][0].plot(times_2, p*kPa)
 ax[1][0].set_xlabel("Time (s)", size=12, **fonts)

@@ -2,7 +2,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 import json
 import sys
-sys.path.append("../Solutions")
+sys.path.append("../solgeom")
 from Mandel import Solution
 
 mm = 1000.

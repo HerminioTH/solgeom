@@ -173,25 +173,4 @@ class Solution( object ):
 
 
 
-if __name__ == '__main__':
-    import pylab as pl
-    import sys, os
-    os.chdir("..")
-    current_dir = os.getcwd()
-    sys.path.append(current_dir+'/PhysicalPropertyTools')
-    from PropertyParser import Properties
 
-    radius = 1.0
-    sigma = 1000.0
-    rock = Properties( current_dir + "/PhysicalPropertyTools/Json_Files/solid.json" )
-    fluid = Properties( current_dir + "/PhysicalPropertyTools/Json_Files/fluid.json" )
-
-    c = Solution( radius, sigma, rock, fluid )
-
-    t = np.logspace(-1, 4, 100)
-    tn = c.getNormalizedTimeValues(t)
-    pn2 = c.getNormalizedPressureAtCentre(t, 250)
-
-    pl.semilogx(tn, pn2, 'b-')
-    pl.grid(True)
-    pl.show()

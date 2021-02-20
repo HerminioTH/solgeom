@@ -3,7 +3,7 @@ from setuptools import setup
 setup(
     name='solgeom',
     version='0.0.1',
-    description='My private package from private github repo',
+    description='Package of analytical solutions of poroelasticity problems.',
     url='https://github.com/HerminioTH/solgeom.git',
     author='Hermínio T. Honório',
     author_email='herminio.eng@gmail.com',

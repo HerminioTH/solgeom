@@ -31,8 +31,8 @@ times_1 = [0.01, 1., 10., 30., 80.]
 for t in times_1:
 	p = mandel.getPressureValuesConstTime(t)
 	ax[0][0].plot(x, p*kPa)
-ax[0][0].set_xlabel("Pressure (kPa)", size=12, **fonts)
-ax[0][0].set_ylabel("Height (m)", size=12, **fonts)
+ax[0][0].set_xlabel("Length (m)", size=12, **fonts)
+ax[0][0].set_ylabel("Pressure (kPa)", size=12, **fonts)
 ax[0][0].grid(True)
 # --------------------------------------------------------------------------
 
@@ -75,7 +75,7 @@ ax[0][2].grid(True)
 v = mandel.getVertDisplacementValuesAtPosition(H, times_2)
 ax[1][2].semilogx(times_2, v*mm)
 ax[1][2].set_xlabel("Time (s)", size=12, **fonts)
-ax[1][2].set_ylabel("Hor. displacement at %s"%(r"$x=L$"), size=12, **fonts)
+ax[1][2].set_ylabel("Vert. displacement at %s"%(r"$y=H$"), size=12, **fonts)
 ax[1][2].grid(True)
 # --------------------------------------------------------------------------
 

@@ -167,18 +167,17 @@ class Solution(object):
 
 
     def getPressureValue(self, yPosition, time, numberOfSummationTerms=200):
-        position = self.height - yPosition;
+        position = yPosition;
         if time == 0.0:
             pressureValue = self._calculate_p_0( yPosition )
             return pressureValue
         else:
             summationResult = 0
-            for j in range( 0, numberOfSummationTerms ):
-                term_1 = 1.0 / ( 2.0 * j + 1.0 )
-                term_2 = ( math.exp( - ( ( time * self.c * ( math.pi ** 2.0 ) * ( ( 2.0 * j + 1.0 ) ** 2.0 ) ) /
-                                        ( 4.0 * ( self.height ** 2.0 ) ) ) ) )
-                term_3 = math.sin( ( math.pi * position * ( 2.0 * j + 1 ) ) / ( 2.0 * self.height ) )
-                summationResult += term_1 * term_2 * term_3
+            for j in range(1, numberOfSummationTerms):
+                term_1 = (-1.0)**(j-1)/(2*j - 1)
+                term_2 = math.exp( -(2*j - 1)**2.0 * time*self.c*math.pi**2.0 / (4.0*self.height**2.0) )
+                term_3 = math.cos( (2*j - 1)*math.pi*position / (2.0*self.height) )
+                summationResult += term_1*term_2*term_3
             barP0 = self.alpha * self.Q / ( self.M + self.alpha * self.alpha * self.Q ) * \
                 ( self.tao_0 + 0.5 * self.rho * self.g * self.height ) - self.rho_f * self.g * \
                 ( 0.5 * self.height );
@@ -186,27 +185,27 @@ class Solution(object):
             pressureValue += self.rho_f * self.g * ( self.height - yPosition )
             return pressureValue
 
+
     def getDisplacementValue(self, yPosition, time, numberOfSummationTerms=200):
-        position = self.height - yPosition;
+        # position = self.height - yPosition;
+        position = yPosition;
         if time == 0.0:
             displacementValue = self._calculate_v_0( yPosition )
             return displacementValue
         else:
             summationResult = 0
-            for j in range( 0, numberOfSummationTerms ):
-                term_1 = 1.0 / ( ( 2.0 * j + 1.0 ) ** 2 )
-                term_2 = ( math.exp( - ( ( self.c * time * ( math.pi ** 2.0 ) * ( ( 2.0 * j + 1.0 ) ** 2.0 ) ) /
-                                         ( 4.0 * ( self.height ** 2.0 ) ) ) ) )
-                term_3 = math.cos( ( math.pi * position * ( 2.0 * j + 1.0 ) ) / ( 2 * self.height ) )
+            for j in range(1, numberOfSummationTerms):
+                term_1 = (-1)**(j+1) / (2*j - 1)**2
+                # term_1 = 1 / (2*j - 1)**2
+                term_2 = math.exp( -(2*j - 1)**2 * self.c*time*math.pi**2 / (4*self.height**2) )
+                term_3 = math.sin( (2*j - 1)*math.pi*position / (2*self.height) )
                 summationResult += term_1 * term_2 * term_3
             barP0 = self.alpha * self.Q / ( self.M + self.alpha * self.alpha * self.Q ) * \
                 ( self.tao_0 + 0.5 * self.rho * self.g * self.height ) - self.rho_f * self.g * \
                 ( 0.5 * self.height );
-            displacementValue = 8.0 * self.alpha * self.height * barP0 * summationResult / \
-                ( math.pi * math.pi * self.M )
-            displacementValue -= ( self.g / self.M ) * ( self.rho - self.alpha * self.rho_f ) * \
-                ( self.height * yPosition - 0.5 * yPosition**2.0 )
-            displacementValue -= ( self.tao_0 / self.M ) *yPosition
+            displacementValue = 8.0*self.alpha*self.height*barP0*summationResult / (self.M*math.pi**2)
+            displacementValue -= ( self.g / self.M ) * ( self.rho - self.alpha * self.rho_f ) * ( self.height * yPosition - 0.5 * yPosition**2.0 )
+            displacementValue -= (self.tao_0*yPosition/self.M)
             return displacementValue
 
 

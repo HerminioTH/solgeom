@@ -174,7 +174,7 @@ class Solution(object):
         else:
             summationResult = 0
             for j in range(1, numberOfSummationTerms):
-                term_1 = (-1.0)**(j-1)/(2*j - 1)
+                term_1 = (-1.0)**(j+1)/(2*j - 1)
                 term_2 = math.exp( -(2*j - 1)**2.0 * time*self.c*math.pi**2.0 / (4.0*self.height**2.0) )
                 term_3 = math.cos( (2*j - 1)*math.pi*position / (2.0*self.height) )
                 summationResult += term_1*term_2*term_3

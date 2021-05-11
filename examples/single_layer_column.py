@@ -11,7 +11,7 @@ kPa = 1/1000.
 
 height = 10.0
 load = 1.0e+4
-gravity = 0.0
+gravity = 9.81
 
 rock = json.load(open("solid.json", "r"))
 fluid = json.load(open("fluid.json", "r"))
